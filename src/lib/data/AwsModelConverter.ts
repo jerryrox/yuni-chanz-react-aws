@@ -1,6 +1,7 @@
 import { ModelConverter } from "yuni-chanz-react";
 import { AttributeValue as DdbAttributeValue } from "@aws-sdk/client-dynamodb";
 import { AttributeValue as DdbsAttributeValue } from "@aws-sdk/client-dynamodb-streams";
+import DdbUtils from "../utils/DdbUtils";
 
 export default abstract class AwsModelConverter<T = any> extends ModelConverter<T> {
     
@@ -8,54 +9,42 @@ export default abstract class AwsModelConverter<T = any> extends ModelConverter<
      * Encodes the specified number value to a DDB attribute value.
      */
     encodeNumber(value: number): DdbAttributeValue | DdbsAttributeValue {
-        return {
-            N: value.toString(),
-        };
+        return DdbUtils.getNumberAV(value);
     }
 
     /**
      * Encodes the specified string value to a DDB attribute value.
      */
     encodeString(value: string): DdbAttributeValue | DdbsAttributeValue {
-        return {
-            S: value,
-        };
+        return DdbUtils.getStringAV(value);
     }
 
     /**
      * Encodes the specified bool value to a DDB attribute value.
      */
     encodeBool(value: boolean): DdbAttributeValue | DdbsAttributeValue {
-        return {
-            BOOL: value,
-        };
+        return DdbUtils.getBoolAV(value);
     }
 
     /**
      * Encodes the specified string array value to a DDB attribute value.
      */
     encodeStringArray(value: string[]): DdbAttributeValue | DdbsAttributeValue {
-        return {
-            SS: value,
-        };
+        return DdbUtils.getStringArrayAV(value);
     }
 
     /**
      * Encodes the specified number array value to a DDB attribute value.
      */
     encodeNumberArray(value: number[]): DdbAttributeValue | DdbsAttributeValue {
-        return {
-            NS: value.map((v) => v.toString()),
-        };
+        return DdbUtils.getNumberArrayAV(value);
     }
 
     /**
      * Encodes the specified date instance to a storable type.
      */
     encodeDate(value: Date): DdbAttributeValue | DdbsAttributeValue {
-        return {
-            S: value.toISOString(),
-        };
+        return DdbUtils.getDateAV(value);
     }
 
     /**

@@ -2,9 +2,13 @@
 AWS integration plugin for yuni-chanz-react.
 
 ## Versions
+### 0.0.3
+#### Changes
+- Moved away logics converting values to DDB `AttributeValue` to `DdbUtils` class.
+
 ### 0.0.2
 #### New features
-- Added more encode/decode functions in AwsModelConverter.
+- Added more encode/decode functions in `AwsModelConverter`.
 
 ### 0.0.1
 #### New features

@@ -1,6 +1,6 @@
 {
   "name": "yuni-chanz-react-aws",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "devDependencies": {
     "@aws-sdk/client-cognito-identity": "^3.16.0",

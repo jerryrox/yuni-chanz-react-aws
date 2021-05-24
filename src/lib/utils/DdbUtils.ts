@@ -1,12 +1,11 @@
-import { AttributeValue as DdbAttributeValue } from "@aws-sdk/client-dynamodb";
-import { AttributeValue as DdbsAttributeValue } from "@aws-sdk/client-dynamodb-streams";
+import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 class DdbUtils {
     
     /**
      * Returns the specified number as DDB attribute value.
      */
-    getNumberAV(value: number): DdbAttributeValue | DdbsAttributeValue {
+    getNumberAV(value: number): AttributeValue {
         return {
             N: value.toString(),
         };
@@ -15,7 +14,7 @@ class DdbUtils {
     /**
      * Returns the specified string as DDB attribute value.
      */
-    getStringAV(value: string): DdbAttributeValue | DdbsAttributeValue {
+    getStringAV(value: string): AttributeValue {
         return {
             S: value,
         };
@@ -24,7 +23,7 @@ class DdbUtils {
     /**
      * Returns the specified bool as DDB attribute value.
      */
-    getBoolAV(value: boolean): DdbAttributeValue | DdbsAttributeValue {
+    getBoolAV(value: boolean): AttributeValue {
         return {
             BOOL: value,
         };
@@ -33,7 +32,7 @@ class DdbUtils {
     /**
      * Returns the specified date as DDB attribute value.
      */
-    getDateAV(value: Date): DdbAttributeValue | DdbsAttributeValue {
+    getDateAV(value: Date): AttributeValue {
         return {
             S: value.toISOString(),
         };
@@ -42,7 +41,7 @@ class DdbUtils {
     /**
      * Returns the specified string array as DDB attribute value.
      */
-    getStringArrayAV(value: string[]): DdbAttributeValue | DdbsAttributeValue {
+    getStringArrayAV(value: string[]): AttributeValue {
         return {
             SS: value,
         };
@@ -51,7 +50,7 @@ class DdbUtils {
     /**
      * Returns the specified numberarray as DDB attribute value.
      */
-    getNumberArrayAV(value: number[]): DdbAttributeValue | DdbsAttributeValue {
+    getNumberArrayAV(value: number[]): AttributeValue {
         return {
             NS: value.map((v) => v.toString()),
         };

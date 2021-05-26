@@ -2,7 +2,7 @@ import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBStreamsClient } from "@aws-sdk/client-dynamodb-streams";
 import { S3Client } from "@aws-sdk/client-s3";
-import { IApi } from "yuni-chanz-react";
+import { ApiResponse, IApi } from "yuni-chanz-react";
 import IAwsApiConfig from "./IAwsApiConfig";
 
 export default abstract class AwsApi<T = any> implements IApi<T> {
@@ -27,5 +27,5 @@ export default abstract class AwsApi<T = any> implements IApi<T> {
         this.cognitoIdentity = new CognitoIdentityClient(config.cognitoIdentity ?? {});
     }
 
-    abstract request(): Promise<T>;
+    abstract request(): Promise<ApiResponse<T>>;
 }

@@ -2,6 +2,10 @@
 AWS integration plugin for yuni-chanz-react.
 
 ## Versions
+### 0.1.0
+#### Changes
+- Fixed return type of `request()` in `AwsApi`.
+
 ### 0.0.4
 #### New features
 - Added `AttributeExpression` class to easily build attribute update expressions for DDB.

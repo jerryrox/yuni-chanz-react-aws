@@ -2,7 +2,6 @@
 AWS integration plugin for yuni-chanz-react.
 
 ## Versions
-
 ### 0.2.1
 #### Changes
 - Updated base package.
